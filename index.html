@@ -15,12 +15,11 @@
 
     <!-- Cyberpunk-Tech Noir Styles -->
     <style>
-        body { font-family: 'Rajdhani', sans-serif; }
+        body { font-family: 'Rajdhani', sans-serif; background-color: #050510; }
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
         
-        /* Fondo: Color #050510 con patrón de rejilla y circuitos */
-        .bg-cyber-grid {
-            background-color: #050510;
+        /* Rejilla por encima del fondo para crear profundidad */
+        .cyber-grid-overlay {
             background-image: 
                 linear-gradient(rgba(0, 100, 255, 0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 100, 255, 0.05) 1px, transparent 1px);
@@ -92,18 +91,21 @@
         }
     </style>
 </head>
-<body class="bg-cyber-grid min-h-screen flex flex-col relative text-gray-200">
+<body class="min-h-screen flex flex-col relative text-gray-200">
+
+    <!-- Cyber Grid Overlay (Z-[1] para estar por encima de los fondos Z-0) -->
+    <div class="fixed inset-0 cyber-grid-overlay z-[1] pointer-events-none"></div>
 
     <!-- Evangelion Unit-01 Background Silhouette -->
-    <div class="fixed inset-0 flex items-center justify-center z-0 pointer-events-none opacity-[0.07] mix-blend-screen overflow-hidden">
-        <img src="unit-01.avif" alt="EVA Unit-01 Silhouette" class="w-full h-full object-cover md:object-contain scale-110">
+    <div class="fixed top-24 bottom-32 md:top-28 md:bottom-40 inset-x-0 flex items-center justify-center z-0 pointer-events-none opacity-[0.07] mix-blend-screen overflow-hidden">
+        <img src="assets/unit-01.avif" alt="EVA Unit-01 Silhouette" class="w-auto h-full object-contain">
     </div>
 
-    <!-- Right Margin Manga Panels -->
-    <div class="fixed top-0 right-0 h-full w-48 md:w-72 z-0 pointer-events-none opacity-20 mix-blend-luminosity hidden lg:block overflow-hidden">
-        <img src="manga.webp" alt="Manga Panels" class="w-full h-full object-cover object-right grayscale contrast-150">
-        <!-- Fade gradient so it blends nicely into the dark bg -->
-        <div class="absolute inset-0 bg-gradient-to-r from-[#050510] via-transparent to-transparent"></div>
+    <!-- Left Margin Manga Panels -->
+    <div class="fixed top-0 left-0 h-full w-48 md:w-72 z-0 pointer-events-none opacity-25 hidden md:block overflow-hidden">
+        <img src="/assets/manga.jpg" alt="Manga Panels" class="w-full h-full object-cover object-left grayscale invert contrast-125">
+        <!-- Fade gradient so it blends nicely into the dark bg (difuminado de derecha a izquierda) -->
+        <div class="absolute inset-0 bg-gradient-to-l from-[#050510] via-[#050510]/50 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-[#050510] via-transparent to-[#050510]"></div>
     </div>
 
@@ -140,16 +142,16 @@
                 <span class="font-orbitron text-2xl font-bold tracking-widest text-gray-100 flex items-baseline gap-2">NEHEMÍAS <span class="text-blue-500">AQUINO</span> <span class="text-xs text-purple-400 opacity-60 tracking-widest hidden md:inline-block">/ ネヘミアス</span></span>
             </div>
 
-            <div class="flex items-center gap-4 md:gap-8">
-                <!-- Tactical HUD Status & Sword -->
-                <div class="hidden xl:flex flex-col items-center justify-center border border-gray-700/60 bg-gray-900/60 px-3 py-1.5 relative">
-                    <span class="text-[9px] font-orbitron text-green-400 font-bold tracking-[0.2em] mb-1 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]">SYS: OK</span>
-                <img src="assets/kanana.png" alt="Cyber Sword" class="h-8 w-auto opacity-90 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]">
-                    <!-- HUD brackets -->
-                    <div class="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-purple-500/50"></div>
-                    <div class="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r border-purple-500/50"></div>
-                </div>
+            <!-- Tactical HUD Status & Sword (CENTERED) -->
+            <div class="hidden xl:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center border border-gray-700/60 bg-gray-900/80 px-6 py-1.5 rounded-lg z-10 group cursor-default">
+                <span class="text-[9px] font-orbitron text-green-400 font-bold tracking-[0.3em] mb-0.5 drop-shadow-[0_0_5px_rgba(74,222,128,0.8)]">SYS: OK</span>
+                <img src="assets/kanana.png" alt="Cyber Sword" class="h-10 w-auto opacity-100 drop-shadow-[0_0_12px_rgba(168,85,247,0.9)] group-hover:scale-105 transition-transform duration-300">
+                <!-- HUD brackets -->
+                <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-purple-500/50 rounded-tl-sm"></div>
+                <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-purple-500/50 rounded-br-sm"></div>
+            </div>
 
+            <div class="flex items-center gap-4 md:gap-8">
                 <!-- Navigation Menu -->
                 <nav class="flex flex-wrap justify-center items-center gap-2 md:gap-4">
                     <a href="#" class="px-4 py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">Home</a>
@@ -272,6 +274,16 @@
                         </div>
                         <!-- Htop Table Body -->
                         <div class="flex flex-col px-1">
+                            <!-- Highlighted User Process -->
+                            <div class="flex bg-cyan-900/40 py-[2px]">
+                                <div class="w-8 text-white">4510</div>
+                                <div class="w-12 text-cyan-400">nehemi</div>
+                                <div class="w-6">20</div>
+                                <div class="w-6">0</div>
+                                <div class="w-8 text-right text-white font-bold">1.2</div>
+                                <div class="w-8 text-right">0.4</div>
+                                <div class="flex-grow pl-3 text-white truncate">htop</div>
+                            </div>
                             <div class="flex hover:bg-gray-800 py-[2px]">
                                 <div class="w-8 text-white">1422</div>
                                 <div class="w-12 text-cyan-400">root</div>
@@ -298,16 +310,6 @@
                                 <div class="w-8 text-right text-white">0.1</div>
                                 <div class="w-8 text-right">3.4</div>
                                 <div class="flex-grow pl-3 text-white truncate">/usr/libexec/oracle-cloud-agent</div>
-                            </div>
-                            <!-- Highlighted User Process -->
-                            <div class="flex bg-cyan-900/40 py-[2px]">
-                                <div class="w-8 text-white">4510</div>
-                                <div class="w-12 text-cyan-400">nehemi</div>
-                                <div class="w-6">20</div>
-                                <div class="w-6">0</div>
-                                <div class="w-8 text-right text-white font-bold">1.2</div>
-                                <div class="w-8 text-right">0.4</div>
-                                <div class="flex-grow pl-3 text-white truncate">htop</div>
                             </div>
                         </div>
                     </div>
