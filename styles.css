@@ -20,11 +20,13 @@ body {
 
 /* Deep Glassmorphism */
 .glass-panel {
-    background: rgba(15, 23, 42, 0.4); /* Deep blue/gray base */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(156, 163, 175, 0.2); /* Metallic border */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.2));
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Mechanical Details: Plates and Screws */
@@ -92,4 +94,44 @@ body {
     background: linear-gradient(to right, #60a5fa, #8b5cf6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* Anime/Mecha HUD Corners */
+.hud-corners {
+    position: relative;
+}
+.hud-corners::before, .hud-corners::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(96, 165, 250, 0.5); /* blue-400 */
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 20;
+}
+.hud-corners::before {
+    top: -2px; left: -2px;
+    border-right: none; border-bottom: none;
+}
+.hud-corners::after {
+    bottom: -2px; right: -2px;
+    border-left: none; border-top: none;
+}
+.group:hover .hud-corners::before { top: -6px; left: -6px; border-color: rgba(139, 92, 246, 0.8); /* purple-500 */ }
+.group:hover .hud-corners::after { bottom: -6px; right: -6px; border-color: rgba(139, 92, 246, 0.8); }
+
+/* Vertical Japanese Text */
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+/* Shuriken Logo Animation */
+.logo-shuriken {
+    transition: transform 0.5s ease-in-out;
+}
+
+.logo-container:hover .logo-shuriken {
+    transform: rotate(360deg);
 }
