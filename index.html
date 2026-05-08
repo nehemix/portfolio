@@ -120,6 +120,7 @@
             <!-- Navigation Menu -->
             <nav class="flex flex-wrap justify-center gap-2 md:gap-4">
                 <a href="#" class="px-4 py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="#about" class="px-4 py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">About</a>
                 <a href="#projects" class="px-4 py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">Projects</a>
                 <!-- Download CV Button -->
                 <a href="#" class="cyber-button px-5 py-2 text-sm tracking-wider font-semibold">
@@ -134,7 +135,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             <!-- Left: Text content -->
-            <div class="flex flex-col gap-6 relative z-30">
+            <div class="flex flex-col gap-6 relative z-30 reveal">
                 <h2 class="font-orbitron text-blue-500 font-semibold tracking-[0.2em] text-sm md:text-base flex items-center gap-2">
                     <span class="text-purple-500 font-bold">>></span> CYBERSECURITY STUDENT <span class="text-xs opacity-50 hidden md:inline-block">サイバーセキュリティ</span>
                 </h2>
@@ -159,7 +160,7 @@
             </div>
 
             <!-- Right: Visuals (Glassmorphism UI Montage) -->
-            <div class="relative h-[400px] md:h-[500px] w-full flex items-center justify-center pointer-events-none">
+            <div class="relative h-[400px] md:h-[500px] w-full flex items-center justify-center pointer-events-none reveal reveal-delay-1">
                 <!-- Data Mesh Particles (Represented by CSS styling) -->
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,58,138,0.2)_0%,transparent_70%)] animate-pulse"></div>
                 
@@ -320,9 +321,22 @@
         </div>
     </div>
 
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="w-full max-w-7xl mx-auto p-4 md:p-6 mt-20 relative z-10">
+        <div class="flex items-center gap-4 mb-8 reveal">
+            <h2 class="font-orbitron text-3xl md:text-4xl font-bold text-gray-100 uppercase tracking-wider">About Me</h2>
+            <div class="flex-grow h-px bg-gradient-to-r from-purple-900 to-transparent"></div>
+        </div>
+        <div class="hud-panel p-6 md:p-8 reveal reveal-delay-1">
+            <p class="text-lg md:text-xl text-gray-300 leading-relaxed border-l-2 border-purple-500 pl-4">
+                Hi, I'm Nehemi, I study cybersecurity.
+            </p>
+        </div>
+    </section>
+
     <!-- SELECTED PROJECTS SECTION -->
     <section id="projects" class="w-full max-w-7xl mx-auto p-4 md:p-6 mt-20 mb-20 relative z-10">
-        <div class="flex items-center gap-4 mb-10">
+        <div class="flex items-center gap-4 mb-10 reveal">
             <h2 class="font-orbitron text-3xl md:text-4xl font-bold text-gray-100 uppercase tracking-wider">Selected Projects</h2>
             <div class="flex-grow h-px bg-gradient-to-r from-blue-900 to-transparent"></div>
         </div>
@@ -330,11 +344,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- Project Card 1 -->
-            <div class="hud-panel p-4 flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300">
+            <div class="hud-panel p-4 flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300 reveal">
                 <div class="relative w-full h-48 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 hud-corners">
                     <!-- Live Iframe Preview -->
                     <div class="absolute w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500">
-                        <iframe src="https://nehemi.online/" class="w-full h-full border-0" tabindex="-1"></iframe>
+                        <iframe src="https://nehemi.online/" class="w-full h-full border-0" tabindex="-1" loading="lazy"></iframe>
                     </div>
                     <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(15,23,42,0.3),rgba(30,27,75,0.3))] pointer-events-none"></div>
                 </div>
@@ -360,7 +374,7 @@
             </div>
 
             <!-- Project Card 2 -->
-            <div class="hud-panel p-4 flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300">
+            <div class="hud-panel p-4 flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300 reveal">
                 <div class="relative w-full h-48 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 hud-corners">
                     <div class="absolute inset-0 bg-[linear-gradient(45deg,#171717,#2e1065)] opacity-80 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-mono text-sm">AI Dashboard UI</div>
@@ -387,7 +401,7 @@
             </div>
 
             <!-- Project Card 3 -->
-            <div class="hud-panel p-4 flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300">
+            <div class="hud-panel p-4 flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300 reveal">
                 <div class="relative w-full h-48 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 hud-corners">
                     <div class="absolute inset-0 bg-[linear-gradient(45deg,#0f172a,#000000)] opacity-80 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute inset-0 flex items-center justify-center text-yellow-500 font-mono text-4xl">🛡️</div>
