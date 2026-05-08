@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nehemi | Cybersecurity</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Rajdhani for the Tech/Cyber aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base & Custom Cursor */
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #050505; /* Very dark gray/black */
+            color: #d1d5db; /* Metallic silver text */
+            cursor: crosshair; /* Tech/Terminal cursor */
+            overflow-x: hidden;
+        }
+
+        /* Subtle Circuit & Data Mesh Background */
+        .bg-circuit {
+            background-color: #050505;
+            background-image: 
+                linear-gradient(rgba(30, 58, 138, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 58, 138, 0.15) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(46, 16, 101, 0.2) 0%, transparent 60%);
+            background-size: 30px 30px, 30px 30px, 100vw 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Deep Glassmorphism */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.4); /* Deep blue/gray base */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(156, 163, 175, 0.2); /* Metallic border */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        /* Mechanical Details: Plates and Screws */
+        .mech-border {
+            border-top: 2px solid #4b5563;
+            border-bottom: 2px solid #1f2937;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+            position: relative;
+        }
+        
+        .screw {
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #9ca3af 30%, #374151 80%);
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: inset 0px 1px 2px rgba(255,255,255,0.3), 0 1px 3px rgba(0,0,0,0.8);
+        }
+        .screw::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 60%; height: 1px;
+            background: #111;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 5s ease-in-out infinite 2s;
+        }
+
+        /* Text Gradient for Deep Tones */
+        .text-deep-gradient {
+            background: linear-gradient(to right, #60a5fa, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-circuit min-h-screen flex flex-col relative">
+
+    <!-- Subtle Background Geek Details (Space Invader & Gear) -->
+    <div class="fixed top-32 left-10 opacity-20 animate-float pointer-events-none">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#60a5fa"><path d="M6 3h2v2H6V3zm4 0h4v2h-4V3zm6 0h2v2h-2V3zM4 5h2v2H4V5zm14 0h2v2h-2V5zM2 7h2v2H2V7zm18 0h2v2h-2V7zM0 9h2v2H0V9zm22 0h2v2h-2V9zM0 11h24v2H0v-2zm0 2h2v2H0v-2zm22 0h2v2h-2v-2zM4 15h2v2H4v-2zm14 0h2v2h-2v-2zM6 17h4v2H6v-2zm8 0h4v2h-4v-2z"/></svg>
+    </div>
+    <div class="fixed bottom-40 left-20 opacity-10 animate-float-delayed pointer-events-none text-4xl text-gray-500">
+        ⚙️
+    </div>
+
+    <!-- HEADER / NAVIGATION (Mechanical Shell Style) -->
+    <header class="w-full p-4 md:p-6 sticky top-0 z-50">
+        <div class="glass-panel mech-border rounded-xl mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center p-4">
+            <!-- Screws -->
+            <div class="screw top-2 left-2"></div>
+            <div class="screw top-2 right-2"></div>
+            <div class="screw bottom-2 left-2"></div>
+            <div class="screw bottom-2 right-2"></div>
+
+            <!-- Logo -->
+            <div class="flex items-center gap-3 mb-4 md:mb-0 cursor-pointer">
+                <!-- Stylized Dragon Icon (SVG) -->
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2c-3.3 0-6 2.7-6 6 0 1.3.4 2.5 1.1 3.5l-2.6 3.9c-.3.4-.2 1 .2 1.3l.5.4c.4.3 1 .2 1.3-.2l2.6-3.9c1 .7 2.2 1.1 3.5 1.1 3.3 0 6-2.7 6-6s-2.7-6-6-6z"/>
+                    <path d="M12 12l2 2"/>
+                    <path d="M14 10l-2-2"/>
+                    <path d="M8 20h2v2H8zM14 20h2v2h-2z"/>
+                </svg>
+                <span class="text-2xl font-bold tracking-widest text-gray-100">NEHEMÍAS <span class="text-blue-500">AQUINO</span></span>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="flex flex-wrap justify-center gap-2 md:gap-4">
+                <a href="#" class="px-4 py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="#projects" class="px-4 py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">Projects</a>
+                <!-- Download CV Button -->
+                <a href="#" class="px-5 py-2 text-sm uppercase tracking-wider font-semibold glass-panel border border-blue-900/50 rounded hover:bg-blue-900/30 transition-all shadow-[0_0_10px_rgba(30,58,138,0.3)]">
+                    [ Download CV ]
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <main class="flex-grow flex items-center justify-center p-4 md:p-6 w-full max-w-7xl mx-auto mt-8 md:mt-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Left: Text content -->
+            <div class="flex flex-col gap-6 relative z-10">
+                <h2 class="text-blue-500 font-semibold tracking-[0.2em] text-sm md:text-base">SYSADMIN & CYBERSECURITY ANALYST</h2>
+                <h1 class="text-5xl md:text-7xl font-bold leading-none tracking-tight text-gray-100">
+                    SECURING DIGITAL <br>
+                    <span class="text-deep-gradient">INFRASTRUCTURES</span>
+                </h1>
+                <p class="text-lg text-gray-400 max-w-lg border-l-2 border-blue-900 pl-4">
+                    Protecting digital assets and managing robust server environments. Designing resilient network architectures and mitigating cyber threats.
+                </p>
+                
+                <div class="mt-4 flex items-center gap-4">
+                    <!-- CTA Button -->
+                    <a href="#projects" class="glass-panel px-8 py-4 rounded font-bold uppercase tracking-widest text-gray-100 hover:bg-blue-900/40 border-gray-500 hover:border-blue-400 transition-all inline-flex items-center gap-3 group">
+                        View My Work
+                        <!-- Small cursor icon in button -->
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Visuals (Glassmorphism UI Montage) -->
+            <div class="relative h-[400px] md:h-[500px] w-full flex items-center justify-center pointer-events-none">
+                <!-- Data Mesh Particles (Represented by CSS styling) -->
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,58,138,0.2)_0%,transparent_70%)] animate-pulse"></div>
+                
+                <!-- Frosted Code Panel -->
+                <div class="absolute top-10 right-10 animate-float-delayed z-20">
+                    <div class="glass-panel p-4 rounded-lg w-64 h-48 transform rotate-6 text-xs font-mono text-gray-500 overflow-hidden">
+                        <div class="screw top-1 left-1 w-1.5 h-1.5"></div>
+                        <p class="mt-2 text-blue-400">const user = {</p>
+                        <p class="pl-4">name: 'Nehemías Aquino',</p>
+                        <p class="pl-4">role: 'SysAdmin | Cybersec Analist',</p>
+                    <p class="pl-4 text-purple-400">skills: ['Linux', 'Networking', 'SecOps']</p>
+                        <p class="text-blue-400">};</p>
+                        <p class="mt-2 text-gray-600">await initSystem(user);</p>
+                        <p class="mt-1 text-gray-600">loading modules...</p>
+                    </div>
+                </div>
+
+                <!-- High-End Gaming Laptop Mockup (CSS generated) -->
+                <div class="relative z-10 glass-panel w-full max-w-md h-64 rounded-t-xl rounded-b-md border-b-8 border-gray-700 flex flex-col justify-between items-center p-2 shadow-2xl animate-float">
+                    <div class="w-full h-full bg-[#0a0a0a] rounded overflow-hidden relative border border-gray-800 font-mono text-[10px] leading-tight text-gray-300 p-2 select-none cursor-default">
+                        <!-- Htop Header -->
+                        <div class="flex justify-between w-full mb-3">
+                            <div class="w-[55%] flex flex-col gap-1">
+                                <div class="flex items-center">
+                                    <span class="w-8 text-cyan-400">1</span>
+                                    <span class="text-gray-500 mr-1">[</span>
+                                    <div class="flex-grow h-2 bg-gray-800 relative">
+                                        <div class="h-full bg-green-500 animate-htop-1" style="width: 45%;"></div>
+                                    </div>
+                                    <span class="text-gray-500 ml-1">]</span>
+                                    <span class="w-8 text-right">45.0%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-8 text-cyan-400">2</span>
+                                    <span class="text-gray-500 mr-1">[</span>
+                                    <div class="flex-grow h-2 bg-gray-800 relative">
+                                        <div class="h-full bg-green-500 animate-htop-2" style="width: 60%;"></div>
+                                    </div>
+                                    <span class="text-gray-500 ml-1">]</span>
+                                    <span class="w-8 text-right">60.2%</span>
+                                </div>
+                                <div class="flex items-center mt-1">
+                                    <span class="w-8 text-cyan-400">Mem</span>
+                                    <span class="text-gray-500 mr-1">[</span>
+                                    <div class="flex-grow h-2 bg-gray-800 relative">
+                                        <div class="h-full bg-yellow-500 animate-htop-mem" style="width: 45%;"></div>
+                                    </div>
+                                    <span class="text-gray-500 ml-1">]</span>
+                                    <span class="w-16 text-right text-yellow-500">7.2G/16G</span>
+                                </div>
+                            </div>
+                            <div class="w-[40%] flex flex-col items-end text-cyan-400 opacity-80">
+                                <div>Tasks: 142, 290 thr</div>
+                                <div>Load: 1.25 0.98 0.85</div>
+                                <div>Uptime: 24d 14:22:15</div>
+                            </div>
+                        </div>
+                        <!-- Htop Table Header -->
+                        <div class="flex bg-green-800 text-white font-bold px-1 mb-1">
+                            <div class="w-8">PID</div>
+                            <div class="w-12">USER</div>
+                            <div class="w-6">PRI</div>
+                            <div class="w-6">NI</div>
+                            <div class="w-8 text-right">CPU%</div>
+                            <div class="w-8 text-right">MEM%</div>
+                            <div class="flex-grow pl-3">Command</div>
+                        </div>
+                        <!-- Htop Table Body -->
+                        <div class="flex flex-col px-1">
+                            <div class="flex hover:bg-gray-800 py-[2px]">
+                                <div class="w-8 text-white">1422</div>
+                                <div class="w-12 text-cyan-400">root</div>
+                                <div class="w-6">20</div>
+                                <div class="w-6">0</div>
+                                <div class="w-8 text-right text-white">12.5</div>
+                                <div class="w-8 text-right">2.1</div>
+                                <div class="flex-grow pl-3 text-white truncate">/usr/bin/dockerd</div>
+                            </div>
+                            <div class="flex hover:bg-gray-800 py-[2px]">
+                                <div class="w-8 text-white">2910</div>
+                                <div class="w-12 text-cyan-400">nginx</div>
+                                <div class="w-6">20</div>
+                                <div class="w-6">0</div>
+                                <div class="w-8 text-right text-white">5.2</div>
+                                <div class="w-8 text-right">0.8</div>
+                                <div class="flex-grow pl-3 text-white truncate">nginx: worker process</div>
+                            </div>
+                            <div class="flex hover:bg-gray-800 py-[2px]">
+                                <div class="w-8 text-white">993</div>
+                                <div class="w-12 text-cyan-400">root</div>
+                                <div class="w-6">20</div>
+                                <div class="w-6">0</div>
+                                <div class="w-8 text-right text-white">0.5</div>
+                                <div class="w-8 text-right">0.3</div>
+                                <div class="flex-grow pl-3 text-white truncate">/usr/sbin/sshd -D</div>
+                            </div>
+                            <!-- Highlighted User Process -->
+                            <div class="flex bg-cyan-900/40 py-[2px]">
+                                <div class="w-8 text-white">4510</div>
+                                <div class="w-12 text-cyan-400">nehemi</div>
+                                <div class="w-6">20</div>
+                                <div class="w-6">0</div>
+                                <div class="w-8 text-right text-white font-bold">45.0</div>
+                                <div class="w-8 text-right">15.5</div>
+                                <div class="flex-grow pl-3 text-white truncate">htop</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Laptop Base detail -->
+                    <div class="h-3 w-1/4 bg-gray-600 rounded-b mt-1"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SELECTED PROJECTS SECTION -->
+    <section id="projects" class="w-full max-w-7xl mx-auto p-4 md:p-6 mt-20 mb-20 relative z-10">
+        <div class="flex items-center gap-4 mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-100 uppercase tracking-wider">Selected Projects</h2>
+            <div class="flex-grow h-px bg-gradient-to-r from-blue-900 to-transparent"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Project Card 1 -->
+            <div class="glass-panel p-4 rounded-xl flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300">
+                <div class="relative w-full h-48 bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <!-- Live Iframe Preview -->
+                    <div class="absolute w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+                        <iframe src="https://nehemi.online/" class="w-full h-full border-0" tabindex="-1"></iframe>
+                    </div>
+                    <!-- Subtle Overlay to maintain aesthetic -->
+                    <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(15,23,42,0.3),rgba(30,27,75,0.3))] pointer-events-none"></div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-200">Photography landing page
+                </h3>
+                <p class="text-sm text-gray-400 flex-grow">Secure deployment and configuration of a VPS and website, demonstrating hardening capabilities.</p>
+                
+                <!-- Technologies -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span class="px-2 py-1 text-xs border border-gray-600 rounded text-gray-300 bg-gray-800/50 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-blue-400"></span> Docker
+                    </span>
+                    <span class="px-2 py-1 text-xs border border-gray-600 rounded text-gray-300 bg-gray-800/50 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Oracle Cloud
+                    </span>
+                    <span class="px-2 py-1 text-xs border border-gray-600 rounded text-gray-300 bg-gray-800/50 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-green-500"></span> Cloudflare
+                    </span>
+                </div>
+                
+                <a href="https://nehemi.online/" target="_blank" class="mt-4 w-full py-2 glass-panel border-gray-600 text-sm font-bold uppercase tracking-wider hover:bg-blue-900/30 transition-colors text-center inline-block">
+                    Visit Site
+                </a>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="glass-panel p-4 rounded-xl flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300">
+                <div class="relative w-full h-48 bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <div class="absolute inset-0 bg-[linear-gradient(45deg,#171717,#2e1065)] opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-mono text-sm">AI Dashboard UI</div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-200">Project Beta: Synth AI</h3>
+                <p class="text-sm text-gray-400 flex-grow">Machine learning dashboard for visualizing predictive models using dynamic charting and WebGL.</p>
+                
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span class="px-2 py-1 text-xs border border-gray-600 rounded text-gray-300 bg-gray-800/50 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-yellow-400"></span> Python
+                    </span>
+                    <span class="px-2 py-1 text-xs border border-gray-600 rounded text-gray-300 bg-gray-800/50 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span> TensorFlow
+                    </span>
+                    <span class="px-2 py-1 text-xs border border-gray-600 rounded text-gray-300 bg-gray-800/50 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-white"></span> Next.js
+                    </span>
+                </div>
+                
+                <button class="mt-4 w-full py-2 glass-panel border-gray-600 text-sm font-bold uppercase tracking-wider hover:bg-blue-900/30 transition-colors">
+                    View Details
+                </button>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="glass-panel p-4 rounded-xl flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300">
+                <div class="relative w-full h-48 bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <div class="absolute inset-0 bg-[linear-gradient(45deg,#0f172a,#000000)] opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-mono text-sm">Multiplayer Game Hub UI</div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-200">Project Gamma: Arena Hub</h3>
+                <p class="text-sm text-gray-400 flex-grow">A social networking and matchmaking platform built for competitive gamers and esports teams.</p>
+                
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span class="px-2 py-1 text-xs border border-gray-600 rounded text-gray-300 bg-gray-800/50 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-blue-600"></span> TypeScript
+                    </span>
+                    <span class="px-2 py-1 text-xs border border-gray-600 rounded text-gray-300 bg-gray-800/50 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-red-500"></span> Socket.io
+                    </span>
+                </div>
+                
+                <button class="mt-4 w-full py-2 glass-panel border-gray-600 text-sm font-bold uppercase tracking-wider hover:bg-blue-900/30 transition-colors">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Dragon Icon (Bottom Right) -->
+    <div class="fixed bottom-6 right-6 opacity-30 animate-float pointer-events-none">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c-3.3 0-6 2.7-6 6 0 1.3.4 2.5 1.1 3.5l-2.6 3.9c-.3.4-.2 1 .2 1.3l.5.4c.4.3 1 .2 1.3-.2l2.6-3.9c1 .7 2.2 1.1 3.5 1.1 3.3 0 6-2.7 6-6s-2.7-6-6-6z"/>
+            <path d="M12 12l2 2"/>
+            <path d="M14 10l-2-2"/>
+            <path d="M8 20h2v2H8zM14 20h2v2h-2z"/>
+        </svg>
+    </div>
+
+</body>
+</html>
