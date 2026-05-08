@@ -160,13 +160,14 @@
             </div>
 
             <!-- Right: Visuals (Glassmorphism UI Montage) -->
-            <div class="relative h-[400px] md:h-[500px] w-full flex items-center justify-center pointer-events-none reveal reveal-delay-1">
+            <div class="relative h-[400px] md:h-[500px] w-full flex items-center justify-center group reveal reveal-delay-1">
                 <!-- Data Mesh Particles (Represented by CSS styling) -->
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,58,138,0.2)_0%,transparent_70%)] animate-pulse"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,58,138,0.2)_0%,transparent_70%)] animate-pulse pointer-events-none"></div>
                 
                 <!-- Frosted Code Panel -->
-                <div class="absolute top-10 right-10 animate-float-delayed z-20">
-                    <div class="hud-panel p-4 pr-6 w-auto min-w-[16rem] h-auto pb-6 transform rotate-6 text-xs font-mono text-gray-500 overflow-hidden whitespace-nowrap">
+                <div class="absolute top-10 right-10 z-20 transition-transform duration-700 ease-out group-hover:-translate-y-12 group-hover:translate-x-8 md:group-hover:translate-x-12">
+                    <div class="animate-float-delayed">
+                        <div class="hud-panel p-4 pr-6 w-auto min-w-[16rem] h-auto pb-6 transform rotate-6 group-hover:rotate-2 transition-transform duration-700 text-xs font-mono text-gray-500 overflow-hidden whitespace-nowrap">
                         <div class="screw top-1 left-1 w-1.5 h-1.5"></div>
                         <p class="mt-2 text-blue-400">const user = {</p>
                         <p class="pl-4">name: 'Nehemías Aquino',</p>
@@ -175,12 +176,14 @@
                         <p class="text-blue-400">};</p>
                         <p class="mt-2 text-gray-600">await initSystem(user);</p>
                         <p class="mt-1 text-gray-600">console.log('loading modules...');</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- High-End Gaming Laptop Mockup (CSS generated) -->
-                <div class="relative z-10 hud-panel w-full max-w-md h-64 border-b-8 border-gray-700 flex flex-col justify-between items-center p-2 shadow-2xl animate-float">
-                    <div class="w-full h-full bg-[#0a0a0a] rounded overflow-hidden relative border border-gray-800 font-mono text-[10px] leading-tight text-gray-300 p-2 select-none cursor-default">
+                <div class="relative z-10 w-full max-w-md transition-transform duration-700 ease-out group-hover:translate-y-8 group-hover:-translate-x-4 md:group-hover:-translate-x-8">
+                    <div class="hud-panel w-full h-64 border-b-8 border-gray-700 flex flex-col justify-between items-center p-2 shadow-2xl animate-float">
+                        <div class="w-full h-full bg-[#0a0a0a] rounded overflow-hidden relative border border-gray-800 font-mono text-[10px] leading-tight text-gray-300 p-2 select-none cursor-default">
                         <!-- Anime System Header -->
                         <div class="flex justify-between w-full mb-2 border-b border-blue-900/50 pb-1">
                             <span class="text-blue-400 font-bold tracking-widest text-[9px] uppercase">MAGI_SYS // BLUE_TYPE <span class="text-purple-400 ml-1 opacity-70">同期中</span></span>
@@ -193,19 +196,19 @@
                                     <span class="w-8 text-cyan-400">1</span>
                                     <span class="text-gray-500 mr-1">[</span>
                                     <div class="flex-grow h-2 bg-gray-800 relative">
-                                        <div class="h-full bg-green-500" style="width: 45%;"></div>
+                                        <div class="h-full bg-green-500" style="width: 3.5%;"></div>
                                     </div>
                                     <span class="text-gray-500 ml-1">]</span>
-                                    <span class="w-8 text-right">45.0%</span>
+                                    <span class="w-8 text-right">3.5%</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="w-8 text-cyan-400">2</span>
                                     <span class="text-gray-500 mr-1">[</span>
                                     <div class="flex-grow h-2 bg-gray-800 relative">
-                                        <div class="h-full bg-green-500" style="width: 60%;"></div>
+                                        <div class="h-full bg-green-500" style="width: 1.2%;"></div>
                                     </div>
                                     <span class="text-gray-500 ml-1">]</span>
-                                    <span class="w-8 text-right">60.2%</span>
+                                    <span class="w-8 text-right">1.2%</span>
                                 </div>
                                 <div class="flex items-center mt-1">
                                     <span class="w-8 text-cyan-400">Mem</span>
@@ -219,7 +222,7 @@
                             </div>
                             <div class="w-[40%] flex flex-col items-end text-cyan-400 opacity-80">
                                 <div>Tasks: 142, 290 thr</div>
-                                <div>Load: 1.25 0.98 0.85</div>
+                                <div>Load: 0.12 0.05 0.01</div>
                                 <div>Uptime: 24d 14:22:15</div>
                             </div>
                         </div>
@@ -240,27 +243,27 @@
                                 <div class="w-12 text-cyan-400">root</div>
                                 <div class="w-6">20</div>
                                 <div class="w-6">0</div>
-                                <div class="w-8 text-right text-white">12.5</div>
+                                <div class="w-8 text-right text-white">0.5</div>
                                 <div class="w-8 text-right">2.1</div>
                                 <div class="flex-grow pl-3 text-white truncate">/usr/bin/dockerd</div>
                             </div>
                             <div class="flex hover:bg-gray-800 py-[2px]">
-                                <div class="w-8 text-white">2910</div>
-                                <div class="w-12 text-cyan-400">nginx</div>
-                                <div class="w-6">20</div>
-                                <div class="w-6">0</div>
-                                <div class="w-8 text-right text-white">5.2</div>
-                                <div class="w-8 text-right">0.8</div>
-                                <div class="flex-grow pl-3 text-white truncate">nginx: worker process</div>
-                            </div>
-                            <div class="flex hover:bg-gray-800 py-[2px]">
-                                <div class="w-8 text-white">993</div>
+                                <div class="w-8 text-white">1045</div>
                                 <div class="w-12 text-cyan-400">root</div>
                                 <div class="w-6">20</div>
                                 <div class="w-6">0</div>
-                                <div class="w-8 text-right text-white">0.5</div>
-                                <div class="w-8 text-right">0.3</div>
-                                <div class="flex-grow pl-3 text-white truncate">/usr/sbin/sshd -D</div>
+                                <div class="w-8 text-right text-white">0.3</div>
+                                <div class="w-8 text-right">1.2</div>
+                                <div class="flex-grow pl-3 text-white truncate">/usr/bin/containerd</div>
+                            </div>
+                            <div class="flex hover:bg-gray-800 py-[2px]">
+                                <div class="w-8 text-white">842</div>
+                                <div class="w-12 text-cyan-400">oracle</div>
+                                <div class="w-6">20</div>
+                                <div class="w-6">0</div>
+                                <div class="w-8 text-right text-white">0.1</div>
+                                <div class="w-8 text-right">3.4</div>
+                                <div class="flex-grow pl-3 text-white truncate">/usr/libexec/oracle-cloud-agent</div>
                             </div>
                             <!-- Highlighted User Process -->
                             <div class="flex bg-cyan-900/40 py-[2px]">
@@ -268,14 +271,15 @@
                                 <div class="w-12 text-cyan-400">nehemi</div>
                                 <div class="w-6">20</div>
                                 <div class="w-6">0</div>
-                                <div class="w-8 text-right text-white font-bold">45.0</div>
-                                <div class="w-8 text-right">15.5</div>
+                                <div class="w-8 text-right text-white font-bold">1.2</div>
+                                <div class="w-8 text-right">0.4</div>
                                 <div class="flex-grow pl-3 text-white truncate">htop</div>
                             </div>
                         </div>
                     </div>
                     <!-- Laptop Base detail -->
                     <div class="h-3 w-1/4 bg-gray-600 rounded-b mt-1"></div>
+                    </div>
                 </div>
             </div>
         </div>
