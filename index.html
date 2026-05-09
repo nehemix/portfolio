@@ -481,5 +481,89 @@
         </div>
     </section>
 
+    <!-- Background Audio Control -->
+    <button id="audio-control" class="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-50 hud-panel px-4 py-2 flex items-center gap-2 cursor-pointer border border-purple-500/50 hover:bg-purple-900/30 transition-all group">
+        <span id="audio-icon" class="text-lg group-hover:animate-pulse">🔈</span> 
+        <span id="audio-text" class="font-orbitron text-xs font-bold tracking-widest text-gray-300">BGM: OFF</span>
+    </button>
+    <div id="yt-player" class="hidden"></div>
+
+    <!-- YouTube API para música de fondo -->
+    <script>
+        let ytPlayer;
+
+        // Función global requerida por la API de YouTube
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('yt-player', {
+                height: '0',
+                width: '0',
+                videoId: 'Na0w3Mz46GA',
+                playerVars: {
+                    'autoplay': 1,
+                    'loop': 1,
+                    'playlist': 'Na0w3Mz46GA', // Requerido para que el loop funcione en IFrame
+                    'controls': 0,
+                    'showinfo': 0,
+                    'modestbranding': 1,
+                    'disablekb': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            ytPlayer.setVolume(50); // Mitad del volumen
+        }
+
+        function onPlayerStateChange(event) {
+            const audioIcon = document.getElementById('audio-icon');
+            const audioText = document.getElementById('audio-text');
+            
+            if (event.data == YT.PlayerState.PLAYING) {
+                if (ytPlayer.isMuted()) {
+                    audioIcon.innerText = '🔈';
+                    audioText.innerText = 'BGM: MUTED';
+                } else {
+                    audioIcon.innerText = '🔊';
+                    audioText.innerText = 'BGM: ON';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('audio-control');
+            btn.addEventListener('click', () => {
+                if (ytPlayer && typeof ytPlayer.getPlayerState === 'function') {
+                    // Si el navegador bloqueó el autoplay o estaba en pausa, lo iniciamos
+                    if (ytPlayer.getPlayerState() !== YT.PlayerState.PLAYING) {
+                        ytPlayer.unMute();
+                        ytPlayer.setVolume(50);
+                        ytPlayer.playVideo();
+                    } else {
+                        // Si ya está reproduciendo, alternamos el mute
+                        if (ytPlayer.isMuted()) {
+                            ytPlayer.unMute();
+                            ytPlayer.setVolume(50);
+                            document.getElementById('audio-icon').innerText = '🔊';
+                            document.getElementById('audio-text').innerText = 'BGM: ON';
+                        } else {
+                            ytPlayer.mute();
+                            document.getElementById('audio-icon').innerText = '🔈';
+                            document.getElementById('audio-text').innerText = 'BGM: MUTED';
+                        }
+                    }
+                }
+            });
+            
+            // Inyectar el script asíncrono de YouTube IFrame API
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        });
+    </script>
 </body>
 </html>
