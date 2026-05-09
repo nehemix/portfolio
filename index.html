@@ -540,13 +540,13 @@
                     // Si el navegador bloqueó el autoplay o estaba en pausa, lo iniciamos
                     if (ytPlayer.getPlayerState() !== YT.PlayerState.PLAYING) {
                         ytPlayer.unMute();
-                        ytPlayer.setVolume(50);
+                        ytPlayer.setVolume(30);
                         ytPlayer.playVideo();
                     } else {
                         // Si ya está reproduciendo, alternamos el mute
                         if (ytPlayer.isMuted()) {
                             ytPlayer.unMute();
-                            ytPlayer.setVolume(50);
+                            ytPlayer.setVolume(30);
                             document.getElementById('audio-icon').innerText = '🔊';
                             document.getElementById('audio-text').innerText = 'BGM: ON';
                         } else {
