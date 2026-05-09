@@ -103,9 +103,17 @@
 
     <!-- Left Margin Manga Panels -->
     <div class="fixed top-0 left-0 h-full w-48 md:w-72 z-0 pointer-events-none opacity-25 hidden md:block overflow-hidden">
-        <img src="/assets/manga.jpg" alt="Manga Panels" class="w-full h-full object-cover object-left grayscale invert contrast-125">
+        <img src="/assets/manga.jpg" alt="Manga Panels" class="w-full h-full object-contain object-left grayscale invert contrast-125">
         <!-- Fade gradient so it blends nicely into the dark bg (difuminado de derecha a izquierda) -->
         <div class="absolute inset-0 bg-gradient-to-l from-[#050510] via-[#050510]/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#050510] via-transparent to-[#050510]"></div>
+    </div>
+
+    <!-- Right Margin Manga Panels (Asuka) -->
+    <div class="fixed top-24 bottom-32 md:top-28 md:bottom-40 right-0 w-64 md:w-96 xl:w-[500px] z-0 pointer-events-none opacity-25 hidden md:block overflow-hidden">
+        <img src="assets/asuka.webp" alt="Asuka Manga Panels" class="w-full h-full object-contain object-right grayscale invert contrast-125">
+        <!-- Fade gradient so it blends nicely into the dark bg (difuminado de izquierda a derecha) -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#050510] via-[#050510]/50 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-[#050510] via-transparent to-[#050510]"></div>
     </div>
 
