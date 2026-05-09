@@ -3,7 +3,7 @@ body {
     font-family: 'Rajdhani', sans-serif;
     background-color: #050505; /* Very dark gray/black */
     color: #d1d5db; /* Metallic silver text */
-    cursor: crosshair; /* Tech/Terminal cursor */
+    cursor: url('assets/cursor.cur'), crosshair; /* Tech/Terminal cursor */
     overflow-x: hidden;
 }
 
