@@ -6,6 +6,6 @@ services:
     container_name: nehemi-portfolio
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "443:80"
     # Nota: Si configuras Cloudflare Tunnels en Docker, puedes quitar "ports"
     # y enrutar el tráfico directamente al contenedor "web" en el puerto 80.
