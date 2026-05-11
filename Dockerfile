@@ -1,10 +1,11 @@
 FROM nginx:alpine
 
-# Copiar los archivos del portafolio al servidor web
+# 1. Copiar los archivos del portafolio
 COPY index.html styles.css scripts.js /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
-# Desactivar la firma de la versión de Nginx
-RUN sed -i 's/#static/server_tokens off;/' /etc/nginx/nginx.conf || echo "server_tokens off;" >> /etc/nginx/conf.d/default.conf
+# 2. Forzar la desactivación de server_tokens en el archivo de configuración principal
+# Usamos sed para insertarlo justo después de la línea 'http {'
+RUN sed -i '/http {/a \    server_tokens off;' /etc/nginx/nginx.conf
 
 EXPOSE 80
