@@ -8,4 +8,4 @@ COPY assets/ /usr/share/nginx/html/assets/
 # Usamos sed para insertarlo justo después de la línea 'http {'
 RUN sed -i '/http {/a \    server_tokens off;' /etc/nginx/nginx.conf
 
-EXPOSE 3000
+EXPOSE 80

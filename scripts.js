@@ -34,10 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Reset state if already cut, then slash
             if (titleToCut.classList.contains('is-cut')) {
                 titleToCut.classList.remove('is-cut');
-                setTimeout(slash, 400); // Faster reset
-            } else {
-                slash();
             }
+            slash();
         });
     }
 
@@ -65,9 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             katanaSound.currentTime = 0;
             katanaSound.play();
-        }, 100);
+        }, 1100); // Ligeramente adelantado para que suene un poco antes del corte
 
-        // Time the cut effect (40% of 1.0s animation = 400ms)
+        // Time the cut effect (54% of 2.5s animation = 1350ms)
         setTimeout(() => {
             titleToCut.classList.add('is-cut');
             createParticles(titleToCut);
@@ -78,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     titleToCut.style.setProperty('--glow-opacity', '0');
                 }
             }, 150); // Glow visible for 150ms
-        }, 400);
+        }, 1350);
 
         // Listen for animation end to reset
         katanaContainer.addEventListener('animationend', () => {
