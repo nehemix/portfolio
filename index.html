@@ -203,10 +203,11 @@
             </div>
 
             <!-- Tactical HUD Sword (CENTERED) -->
-            <div
-                class="hidden xl:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center z-10 group">
-                <img src="assets/kanana.png" alt="Cyber Sword"
+            <div id="katana-container"
+                class="hidden xl:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center z-10 group cursor-pointer">
+                <img id="katana-sword" src="assets/kanana.png" alt="Cyber Sword"
                     class="h-8 w-auto opacity-100 drop-shadow-[0_0_12px_rgba(168,85,247,0.9)] group-hover:scale-110 transition-transform duration-300">
+                <div id="slash-trail"></div>
             </div>
 
             <div class="flex items-center gap-4 md:gap-8">
@@ -246,7 +247,10 @@
                 <h1
                     class="font-orbitron text-3xl sm:text-4xl md:text-6xl lg:text-5xl xl:text-6xl font-bold leading-none tracking-tight text-gray-100">
                     PROACTIVE SECURITY &<br>
-                    <span class="text-deep-gradient">INFRASTRUCTURE HARDENING</span>
+                    <span id="title-to-cut" class="relative inline-block">
+                        <span class="title-part-top text-deep-gradient">INFRASTRUCTURE HARDENING</span>
+                        <span class="title-part-bottom text-deep-gradient">INFRASTRUCTURE HARDENING</span>
+                    </span>
                 </h1>
                 <p class="text-lg text-gray-400 max-w-lg border-l-2 border-blue-900 pl-4">
                     Final year Cybersecurity student focused on infrastructure administration and hardening, applying
@@ -744,6 +748,9 @@
         <span id="audio-text" class="font-orbitron text-xs font-bold tracking-widest text-gray-300">BGM: OFF</span>
     </button>
     <div id="yt-player" class="hidden"></div>
+
+    <!-- Katana Sound Effect -->
+    <audio id="katana-sound" src="assets/katana.mp3" preload="auto"></audio>
 
     <!-- YouTube API para música de fondo -->
     <script>
