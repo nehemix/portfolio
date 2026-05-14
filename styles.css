@@ -201,41 +201,6 @@ body {
     }
 }
 
-/* Motion Trail Effect */
-#slash-trail {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-    border-radius: 50%;
-    opacity: 0;
-    transform: translate(-50%, -50%) scaleX(0) rotate(55deg);
-    filter: blur(1px);
-    will-change: transform, opacity;
-}
-
-.katana-slash-animation #slash-trail {
-    /* Animation duration: 200ms. Start delay: 1250ms */
-    animation: slash-trail-anim 200ms cubic-bezier(0.6, 0.01, 0.2, 1) 1250ms;
-}
-
-@keyframes slash-trail-anim {
-    0% {
-        transform: translate(-50%, -50%) scaleX(0) rotate(55deg);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translate(-50%, -50%) scaleX(1.5) rotate(55deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -50%) scaleX(2) rotate(55deg);
-        opacity: 0;
-    }
-}
-
 /* Sword Glint Effect */
 #sword-glint {
     position: absolute;

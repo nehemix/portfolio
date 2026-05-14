@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const katanaRect = katanaContainer.getBoundingClientRect();
         const titleRect = titleToCut.getBoundingClientRect();
 
-        // Target the middle of the title
-        const targetX = titleRect.left + titleRect.width / 2 - katanaRect.left - katanaRect.width / 2;
+        // Target a bit to the left of the middle of the title (40% to match the new cut)
+        const targetX = titleRect.left + (titleRect.width * 0.40) - katanaRect.left - katanaRect.width / 2;
         const targetY = titleRect.top + titleRect.height / 2 - katanaRect.top - katanaRect.height / 2;
 
         // Set CSS variables for the animation

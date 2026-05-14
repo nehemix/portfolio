@@ -124,6 +124,19 @@
             background-color: #60a5fa;
             border-radius: 50%;
         }
+
+        /* Sobrescribir clip-path para el corte diagonal (de arriba-derecha a abajo-izquierda) desplazado a la izquierda */
+        .title-part-top, .title-part-bottom {
+            display: block !important;
+        }
+        
+        #title-to-cut.is-cut .title-part-top {
+            clip-path: polygon(0 0, 70% 0, 10% 100%, 0 100%) !important;
+        }
+        
+        #title-to-cut.is-cut .title-part-bottom {
+            clip-path: polygon(70% 0, 100% 0, 100% 100%, 10% 100%) !important;
+        }
     </style>
 </head>
 
@@ -212,7 +225,6 @@
                         <div id="sword-glint"></div>
                     </div>
                 </div>
-                <div id="slash-trail"></div>
             </div>
 
             <div class="flex items-center gap-4 md:gap-8">
@@ -251,10 +263,15 @@
                 </h2>
                 <h1
                     class="font-orbitron text-3xl sm:text-4xl md:text-6xl lg:text-5xl xl:text-6xl font-bold leading-none tracking-tight text-gray-100">
-                    PROACTIVE SECURITY &<br>
                     <span id="title-to-cut" class="relative inline-block">
-                        <span class="title-part-top text-deep-gradient">INFRASTRUCTURE HARDENING</span>
-                        <span class="title-part-bottom text-deep-gradient">INFRASTRUCTURE HARDENING</span>
+                        <span class="title-part-top">
+                            PROACTIVE SECURITY &<br>
+                            <span class="text-deep-gradient">INFRASTRUCTURE HARDENING</span>
+                        </span>
+                        <span class="title-part-bottom absolute top-0 left-0 w-full h-full" aria-hidden="true">
+                            PROACTIVE SECURITY &<br>
+                            <span class="text-deep-gradient">INFRASTRUCTURE HARDENING</span>
+                        </span>
                     </span>
                 </h1>
                 <p class="text-lg text-gray-400 max-w-lg border-l-2 border-blue-900 pl-4">
