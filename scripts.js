@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             katanaSound.currentTime = 0;
             katanaSound.play();
-        }, 1100); // Ligeramente adelantado para que suene un poco antes del corte
+        }, 1125); // Ajuste fino intermedio para sincronización exacta
 
-        // Time the cut effect (54% of 2.5s animation = 1350ms)
+        // Time the cut effect (adjusted to 1325ms to sync better with visual impact)
         setTimeout(() => {
             titleToCut.classList.add('is-cut');
             createParticles(titleToCut);
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     titleToCut.style.setProperty('--glow-opacity', '0');
                 }
             }, 150); // Glow visible for 150ms
-        }, 1350);
+        }, 1325);
 
         // Listen for animation end to reset
         katanaContainer.addEventListener('animationend', () => {
