@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let isAnimating = false;
 
     if (katanaContainer && titleToCut && katanaSound) {
+        // Reducir el volumen del efecto de sonido de la katana (0.0 a 1.0)
+        katanaSound.volume = 0.3;
+
         katanaContainer.addEventListener('click', () => {
             if (isAnimating) return;
             isAnimating = true;
