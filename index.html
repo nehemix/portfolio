@@ -30,104 +30,6 @@
     <link rel="stylesheet" href="styles.css">
     <!-- External JS -->
     <script src="scripts.js" defer></script>
-
-    <!-- Cyberpunk-Tech Noir Styles -->
-    <style>
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background-color: #050510;
-        }
-
-        .font-orbitron {
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        /* Rejilla por encima del fondo para crear profundidad */
-        .cyber-grid-overlay {
-            background-image:
-                linear-gradient(rgba(0, 100, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 100, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-
-        /* Contenedores: bordes metálicos, HUD, shadow neón tenue, glassmorphism */
-        .hud-panel {
-            background: rgba(255, 255, 255, 0.05);
-            /* Efecto cristal translúcido iOS */
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            border-left: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            /* Sombra difusa y suave */
-            position: relative;
-            border-radius: 16px;
-            /* Esquinas redondeadas estilo Apple */
-        }
-
-        /* Glifos/Brackets decorativos en las esquinas */
-        .hud-panel::before,
-        .hud-panel::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #60a5fa;
-            /* Azul neón */
-            pointer-events: none;
-            z-index: 10;
-            opacity: 0.7;
-            border-radius: 6px;
-            /* Suavizamos los glifos para acompañar el cristal */
-        }
-
-        .hud-panel::before {
-            top: -2px;
-            left: -2px;
-            border-right: none;
-            border-bottom: none;
-        }
-
-        .hud-panel::after {
-            bottom: -2px;
-            right: -2px;
-            border-left: none;
-            border-top: none;
-        }
-
-        /* Botones: neón violeta, texto en mayúsculas, hover glow y degradado */
-        .cyber-button {
-            border: 1px solid #a855f7;
-            color: #d8b4fe;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            background: transparent;
-            text-shadow: 0 0 5px rgba(168, 85, 247, 0.4);
-            border-radius: 8px;
-        }
-
-        .cyber-button:hover {
-            background: linear-gradient(90deg, #2563eb, #9333ea);
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
-            border-color: transparent;
-            text-shadow: none;
-        }
-
-        /* Variante ligera para los badges de la marquesina */
-        .cyber-badge {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 9999px;
-            /* Forma de píldora estilo iOS Chips/Dynamic Island */
-            padding: 0.5rem 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-    </style>
 </head>
 
 <body class="min-h-screen flex flex-col relative text-gray-200">
@@ -221,14 +123,13 @@
                 <!-- Navigation Menu -->
                 <nav class="flex flex-row justify-center items-center gap-2 sm:gap-3 md:gap-4">
                     <a href="#"
-                        class="px-2 sm:px-3 md:px-4 py-2 text-[13px] sm:text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">Home</a>
+                        class="nav-link px-2 sm:px-3 md:px-4 py-2 text-[13px] sm:text-sm uppercase text-gray-300 hover:text-white transition-colors">Home</a>
                     <a href="#about"
-                        class="px-2 sm:px-3 md:px-4 py-2 text-[13px] sm:text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">About</a>
+                        class="nav-link px-2 sm:px-3 md:px-4 py-2 text-[13px] sm:text-sm uppercase text-gray-300 hover:text-white transition-colors">About</a>
                     <a href="#projects"
-                        class="px-2 sm:px-3 md:px-4 py-2 text-[13px] sm:text-sm uppercase tracking-wider text-gray-300 hover:text-white transition-colors">Projects</a>
-                    <!-- LinkedIn Link -->
-                    <a href="https://www.linkedin.com/in/nehemi/" target="_blank"
-                        class="px-2 sm:px-3 md:px-4 py-2 text-[13px] sm:text-sm uppercase tracking-wider text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1.5 md:gap-2">
+                        class="nav-link px-2 sm:px-3 md:px-4 py-2 text-[13px] sm:text-sm uppercase text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="https://www.linkedin.com/in/nehemi/" target="_blank" rel="noopener noreferrer"
+                        class="nav-link nav-link--accent px-2 sm:px-3 md:px-4 py-2 text-[13px] sm:text-sm uppercase transition-colors flex items-center gap-1.5 md:gap-2">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -246,13 +147,13 @@
 
             <!-- Left: Text content -->
             <div class="flex flex-col gap-6 relative z-30 reveal">
-                <h2
-                    class="font-orbitron text-blue-500 font-semibold tracking-[0.2em] text-sm md:text-base flex items-center gap-2">
-                    <span class="text-purple-500 font-bold">>></span> CYBERSECURITY STUDENT <span
-                        class="text-xs opacity-50 hidden md:inline-block">サイバーセキュリティ</span>
-                </h2>
+                <p class="hero-eyebrow font-orbitron font-semibold w-fit">
+                    <span class="text-purple-400 font-bold">&gt;&gt;</span>
+                    CYBERSECURITY STUDENT
+                    <span class="text-xs opacity-50 hidden md:inline text-blue-300/70">サイバーセキュリティ</span>
+                </p>
                 <h1
-                    class="font-orbitron text-3xl sm:text-4xl md:text-6xl lg:text-5xl xl:text-6xl font-bold leading-none tracking-tight text-gray-100">
+                    class="font-orbitron text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight text-gray-50">
                     <span id="title-to-cut" class="relative inline-block">
                         <span class="title-part-top">
                             PROACTIVE SECURITY &<br>
@@ -264,7 +165,7 @@
                         </span>
                     </span>
                 </h1>
-                <p class="text-lg text-gray-400 max-w-lg border-l-2 border-blue-900 pl-4">
+                <p class="hero-desc">
                     Final year Cybersecurity student focused on infrastructure administration and hardening, applying
                     frameworks like NIST and MITRE.
                 </p>
@@ -425,14 +326,12 @@
     </main>
 
     <!-- SKILLS MARQUEE SECTION -->
-    <div
-        class="w-full bg-[#050505] border-y border-gray-800 py-6 overflow-hidden relative z-10 shadow-[0_0_30px_rgba(0,0,0,0.8)]">
-        <!-- Fade gradients for edges -->
+    <div class="marquee-strip w-full py-7 overflow-hidden relative z-10">
         <div
-            class="absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none">
+            class="absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[#050510] to-transparent z-10 pointer-events-none">
         </div>
         <div
-            class="absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none">
+            class="absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[#050510] to-transparent z-10 pointer-events-none">
         </div>
 
         <div class="marquee-wrapper">
@@ -489,10 +388,10 @@
 
     <!-- ABOUT ME SECTION -->
     <section id="about" class="w-full max-w-7xl mx-auto p-4 md:p-6 relative z-10 scroll-mt-44 md:scroll-mt-24">
-        <div class="flex items-center gap-4 mb-8 reveal">
-            <h2 class="font-orbitron text-3xl md:text-4xl font-bold text-gray-100 uppercase tracking-wider">About Me
-            </h2>
-            <div class="flex-grow h-px bg-gradient-to-r from-purple-900 to-transparent"></div>
+        <div class="section-header reveal">
+            <span class="section-header__index">01</span>
+            <h2>About Me</h2>
+            <div class="section-header__line"></div>
         </div>
         <div class="hud-panel p-6 md:p-8 reveal reveal-delay-1 flex flex-col lg:flex-row gap-8 items-start">
 
@@ -522,22 +421,22 @@
             </div>
 
             <!-- Separated Text Content -->
-            <div class="flex flex-col gap-5 text-lg text-gray-300 leading-relaxed flex-grow">
-                <p class="border-l-2 border-purple-500 pl-4">
+            <div class="flex flex-col gap-5 text-lg text-gray-300 flex-grow">
+                <p class="about-quote border-purple-500">
                     Hi, I'm Nehemi, a cybersecurity student and freelance professional with a focus on designing and
                     securing resilient infrastructure.
                 </p>
-                <p class="border-l-2 border-blue-500 pl-4">
+                <p class="about-quote border-blue-500">
                     I bring a mix of technical skills ranging from Docker and Cloudflare to Zabbix monitoring, combined
                     with strong soft skills like analytical problem-solving and crisis management.
                 </p>
-                <p class="border-l-2 border-cyan-500 pl-4">
+                <p class="about-quote border-cyan-500">
                     With an Upper Intermediate (B2) level of English and a constant drive for self-taught technological
                     updates, I am eager to contribute to security-focused teams while finishing my degree at UNSO.
                 </p>
-            <p class="border-l-2 border-green-500 pl-4">
-                Aside from that, I like watching Rubius streams, anime, playing video games, and listening to BTS, trap, nu metal and EDM. I also Y2K aesthetics and proudly live a plant-based lifestyle.
-            </p>
+                <p class="about-quote border-green-500">
+                    Aside from that, I like watching Rubius streams, anime, playing video games, and listening to BTS, trap, nu metal and EDM. I also love Y2K aesthetics and proudly live a plant-based lifestyle.
+                </p>
             </div>
         </div>
     </section>
@@ -545,10 +444,10 @@
     <!-- TECH STACK SECTION -->
     <section id="tech-stack"
         class="w-full max-w-7xl mx-auto p-4 md:p-6 mt-10 relative z-10 scroll-mt-44 md:scroll-mt-24">
-        <div class="flex items-center gap-4 mb-8 reveal">
-            <h2 class="font-orbitron text-3xl md:text-4xl font-bold text-gray-100 uppercase tracking-wider">Tech Stack
-            </h2>
-            <div class="flex-grow h-px bg-gradient-to-r from-cyan-900 to-transparent"></div>
+        <div class="section-header reveal">
+            <span class="section-header__index">02</span>
+            <h2>Tech Stack</h2>
+            <div class="section-header__line section-header__line--cyan"></div>
         </div>
 
         <div class="hud-panel p-6 md:p-8 reveal reveal-delay-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -559,16 +458,11 @@
                     <span class="text-gray-500">></span> Languages
                 </h3>
                 <div class="flex flex-wrap gap-2">
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-cyan-500/50 hover:text-cyan-300 transition-colors select-none">JavaScript</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-cyan-500/50 hover:text-cyan-300 transition-colors select-none">Python</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-cyan-500/50 hover:text-cyan-300 transition-colors select-none">Sass</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-cyan-500/50 hover:text-cyan-300 transition-colors select-none">SQL</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-cyan-500/50 hover:text-cyan-300 transition-colors select-none">TypeScript</span>
+                    <span class="tech-chip text-cyan-400/90 hover:text-cyan-300">JavaScript</span>
+                    <span class="tech-chip text-cyan-400/90 hover:text-cyan-300">Python</span>
+                    <span class="tech-chip text-cyan-400/90 hover:text-cyan-300">Sass</span>
+                    <span class="tech-chip text-cyan-400/90 hover:text-cyan-300">SQL</span>
+                    <span class="tech-chip text-cyan-400/90 hover:text-cyan-300">TypeScript</span>
                 </div>
             </div>
 
@@ -579,20 +473,12 @@
                     <span class="text-gray-500">></span> Frameworks & Libs
                 </h3>
                 <div class="flex flex-wrap gap-2">
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-purple-500/50 hover:text-purple-300 transition-colors select-none">Bootstrap</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-purple-500/50 hover:text-purple-300 transition-colors select-none">Bun</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-purple-500/50 hover:text-purple-300 transition-colors select-none">MITRE
-                        ATT&CK</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-purple-500/50 hover:text-purple-300 transition-colors select-none">NIST
-                        CSF</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-purple-500/50 hover:text-purple-300 transition-colors select-none">React</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-purple-500/50 hover:text-purple-300 transition-colors select-none">TailwindCSS</span>
+                    <span class="tech-chip text-purple-400/90 hover:text-purple-300">Bootstrap</span>
+                    <span class="tech-chip text-purple-400/90 hover:text-purple-300">Bun</span>
+                    <span class="tech-chip text-purple-400/90 hover:text-purple-300">MITRE ATT&CK</span>
+                    <span class="tech-chip text-purple-400/90 hover:text-purple-300">NIST CSF</span>
+                    <span class="tech-chip text-purple-400/90 hover:text-purple-300">React</span>
+                    <span class="tech-chip text-purple-400/90 hover:text-purple-300">TailwindCSS</span>
                 </div>
             </div>
 
@@ -603,29 +489,17 @@
                     <span class="text-gray-500">></span> Tools
                 </h3>
                 <div class="flex flex-wrap gap-2">
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Apache</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Debian</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Docker</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Gemini
-                        Code Assist</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Git</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Kubernetes</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Nginx</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">OBS</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Ubuntu</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">VSCode</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-blue-500/50 hover:text-blue-300 transition-colors select-none">Zabbix</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Apache</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Debian</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Docker</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Gemini Code Assist</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Git</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Kubernetes</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Nginx</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">OBS</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Ubuntu</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">VSCode</span>
+                    <span class="tech-chip text-blue-400/90 hover:text-blue-300">Zabbix</span>
                 </div>
             </div>
 
@@ -636,16 +510,10 @@
                     <span class="text-gray-500">></span> Cloud & Infra
                 </h3>
                 <div class="flex flex-wrap gap-2">
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-green-500/50 hover:text-green-300 transition-colors select-none">Cloudflare</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-green-500/50 hover:text-green-300 transition-colors select-none">Google
-                        Cloud</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-green-500/50 hover:text-green-300 transition-colors select-none">MySQL</span>
-                    <span
-                    class="px-3 py-1 text-sm border border-gray-700 rounded bg-gray-800/40 text-gray-300 hover:border-green-500/50 hover:text-green-300 transition-colors select-none">Oracle
-                        Cloud</span>
+                    <span class="tech-chip text-green-400/90 hover:text-green-300">Cloudflare</span>
+                    <span class="tech-chip text-green-400/90 hover:text-green-300">Google Cloud</span>
+                    <span class="tech-chip text-green-400/90 hover:text-green-300">MySQL</span>
+                    <span class="tech-chip text-green-400/90 hover:text-green-300">Oracle Cloud</span>
                 </div>
             </div>
         </div>
@@ -654,22 +522,18 @@
     <!-- SELECTED PROJECTS SECTION -->
     <section id="projects"
         class="w-full max-w-7xl mx-auto p-4 md:p-6 mt-20 mb-20 relative z-10 scroll-mt-44 md:scroll-mt-24">
-        <div class="flex items-center gap-4 mb-10 reveal">
-            <h2 class="font-orbitron text-3xl md:text-4xl font-bold text-gray-100 uppercase tracking-wider">Selected
-                Projects</h2>
-            <div class="flex-grow h-px bg-gradient-to-r from-blue-900 to-transparent"></div>
+        <div class="section-header reveal">
+            <span class="section-header__index">03</span>
+            <h2>Selected Projects</h2>
+            <div class="section-header__line section-header__line--blue"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- Project Card 1 -->
-            <div
-                class="hud-panel p-4 flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300 reveal">
-                <div
-                    class="relative w-full h-48 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 hud-corners">
-                    <!-- Image Preview -->
-                    <div
-                        class="absolute inset-0 w-full h-full pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+            <div class="hud-panel project-card p-5 flex flex-col gap-4 group reveal">
+                <div class="project-card__image relative w-full h-48 bg-gray-900 rounded-xl overflow-hidden border border-gray-700/80 hud-corners">
+                    <div class="absolute inset-0 w-full h-full pointer-events-none opacity-70">
                         <img src="assets/martin.png" alt="Customer infrastructure preview" class="w-full h-full object-cover object-top">
                     </div>
                     <div
@@ -709,13 +573,9 @@
             </div>
 
             <!-- Project Card 2 -->
-            <div
-                class="hud-panel p-4 flex flex-col gap-4 group hover:-translate-y-2 transition-transform duration-300 reveal">
-                <div
-                    class="relative w-full h-48 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 hud-corners">
-                    <!-- Image Preview -->
-                    <div
-                        class="absolute inset-0 w-full h-full pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+            <div class="hud-panel project-card p-5 flex flex-col gap-4 group reveal reveal-delay-1">
+                <div class="project-card__image relative w-full h-48 bg-gray-900 rounded-xl overflow-hidden border border-gray-700/80 hud-corners">
+                    <div class="absolute inset-0 w-full h-full pointer-events-none opacity-70">
                         <img src="assets/botana.png" alt="Botana preview" class="w-full h-full object-cover object-top">
                     </div>
                     <div
@@ -749,6 +609,7 @@
                 </div>
             </div>
 
+        </div>
     </section>
 
     <!-- Background Audio Control -->
