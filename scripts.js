@@ -20,6 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => observer.observe(el));
 
+    // --- Gengar Sound ---
+    const gengarContainer = document.getElementById('gengar-container');
+    const gengarSound = document.getElementById('gengar-sound');
+
+    if (gengarContainer && gengarSound) {
+        gengarContainer.addEventListener('click', () => {
+            gengarSound.currentTime = 0; // Reinicia el audio si se clica rápido
+            gengarSound.play();
+        });
+    }
+
     // --- Katana Slash Animation ---
     const katanaContainer = document.getElementById('katana-container');
     const titleToCut = document.getElementById('title-to-cut');
